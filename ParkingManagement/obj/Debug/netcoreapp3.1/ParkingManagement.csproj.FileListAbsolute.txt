@@ -1,0 +1,12 @@
+C:\Shaan\ParkingManagement\ParkingManagement\obj\Debug\netcoreapp3.1\ParkingManagement.AssemblyInfoInputs.cache
+C:\Shaan\ParkingManagement\ParkingManagement\obj\Debug\netcoreapp3.1\ParkingManagement.AssemblyInfo.cs
+C:\Shaan\ParkingManagement\ParkingManagement\obj\Debug\netcoreapp3.1\ParkingManagement.csproj.CoreCompileInputs.cache
+C:\Shaan\ParkingManagement\ParkingManagement\bin\Debug\netcoreapp3.1\ParkingManagement.exe
+C:\Shaan\ParkingManagement\ParkingManagement\bin\Debug\netcoreapp3.1\ParkingManagement.deps.json
+C:\Shaan\ParkingManagement\ParkingManagement\bin\Debug\netcoreapp3.1\ParkingManagement.runtimeconfig.json
+C:\Shaan\ParkingManagement\ParkingManagement\bin\Debug\netcoreapp3.1\ParkingManagement.runtimeconfig.dev.json
+C:\Shaan\ParkingManagement\ParkingManagement\bin\Debug\netcoreapp3.1\ParkingManagement.dll
+C:\Shaan\ParkingManagement\ParkingManagement\bin\Debug\netcoreapp3.1\ParkingManagement.pdb
+C:\Shaan\ParkingManagement\ParkingManagement\obj\Debug\netcoreapp3.1\ParkingManagement.dll
+C:\Shaan\ParkingManagement\ParkingManagement\obj\Debug\netcoreapp3.1\ParkingManagement.pdb
+C:\Shaan\ParkingManagement\ParkingManagement\obj\Debug\netcoreapp3.1\ParkingManagement.genruntimeconfig.cache
