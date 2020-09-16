@@ -5,13 +5,13 @@ namespace ParkingManagement
 {
     public class ChargeableTimeCalculator
     {
-        private static readonly TimeSpan startClock = new TimeSpan(8, 0, 0);
-        private static readonly TimeSpan endClock = new TimeSpan(18, 0, 0);
-        private const int FullDayParkingInMins = 10 * 60;
+        private static readonly TimeSpan StartClock = new TimeSpan(8, 0, 0);
+        private static readonly TimeSpan EndClock = new TimeSpan(18, 0, 0);
+        private const int FullDayParkingInMinutes = 10 * 60;
 
-        public double GetchargeableMins(DateTime entryTime, DateTime exitTime)
+        public double GetChargeableMinutes(DateTime entryTime, DateTime exitTime)
         {
-            double totalChargeableMins = 0d;
+            double totalChargeableMinutes;
 
             // Car is Parked for over a day
             if (exitTime.Date > entryTime.Date)
@@ -20,16 +20,16 @@ namespace ParkingManagement
                 double chargeableTimeForEntireDays = GetChargeableTimeForFullDays(entryTime, exitTime);
                 double chargeableTimeExitDay = GetChargeableTimeExitDay(exitTime);
 
-                totalChargeableMins = chargeableTimeEntryDay + chargeableTimeForEntireDays + chargeableTimeExitDay;
+                totalChargeableMinutes = chargeableTimeEntryDay + chargeableTimeForEntireDays + chargeableTimeExitDay;
             }
             else
             {
-                TimeSpan currentEntryTime = entryTime.TimeOfDay < startClock ? startClock : entryTime.TimeOfDay;
-                TimeSpan currentExitTime = exitTime.TimeOfDay > endClock ? endClock : exitTime.TimeOfDay;
-                totalChargeableMins = currentExitTime < currentEntryTime ? 0d : (currentExitTime - currentEntryTime).TotalMinutes;
+                TimeSpan currentEntryTime = entryTime.TimeOfDay < StartClock ? StartClock : entryTime.TimeOfDay;
+                TimeSpan currentExitTime = exitTime.TimeOfDay > EndClock ? EndClock : exitTime.TimeOfDay;
+                totalChargeableMinutes = currentExitTime < currentEntryTime ? 0d : (currentExitTime - currentEntryTime).TotalMinutes;
             }
 
-            return totalChargeableMins;
+            return totalChargeableMinutes;
         }
 
         public double GetChargeableTimeEntryDay(DateTime entryTime)
@@ -41,7 +41,7 @@ namespace ParkingManagement
             else
             {
                 //Since Parked before startClock,for more than a day so full day fee
-                return entryTime.TimeOfDay < startClock ? FullDayParkingInMins : (endClock - entryTime.TimeOfDay).TotalMinutes;
+                return entryTime.TimeOfDay < StartClock ? FullDayParkingInMinutes : (EndClock - entryTime.TimeOfDay).TotalMinutes;
             }
         }
 
@@ -54,17 +54,17 @@ namespace ParkingManagement
             else
             {
                 //Since Exited after endClock for overnight parking so full day fee
-                return exitTime.TimeOfDay > endClock ? FullDayParkingInMins : (exitTime.TimeOfDay - startClock).TotalMinutes;
+                return exitTime.TimeOfDay > EndClock ? FullDayParkingInMinutes : (exitTime.TimeOfDay - StartClock).TotalMinutes;
             }
         }
 
         public double GetChargeableTimeForFullDays(DateTime entryTime, DateTime exitTime)
         {
-            int days = GetChrgeableMiddleDays(entryTime, exitTime);
-            return days * FullDayParkingInMins;
+            int days = GetChargeableMiddleDays(entryTime, exitTime);
+            return days * FullDayParkingInMinutes;
         }
 
-        public int GetChrgeableMiddleDays(DateTime from, DateTime end)
+        public int GetChargeableMiddleDays(DateTime from, DateTime end)
         {
             int totalDays = 0;
             //We need the middle non-weekend Full days between Parked Day and Exit Day

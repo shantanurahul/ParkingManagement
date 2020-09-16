@@ -14,7 +14,7 @@ namespace ParkingManagement.Tests
             _sut = new ShortStayCalculator();
         }
 
-        [TestCase("09/07/2017 16:50:00", "09/09/2017 19:15:00", 12.28)] //Orignal Test Case
+        [TestCase("09/07/2017 16:50:00", "09/09/2017 19:15:00", 12.28)] //Original Test Case
         [TestCase("09/15/2020 05:00:00", "09/21/2020 17:58:00", 54.96)]//Parking over weekend
         [TestCase("09/15/2020 08:00:00", "09/15/2020 08:02:00", 0.04)]//Edge Case for Park Date
         [TestCase("09/15/2020 05:00:00", "09/15/2020 07:59:00", 0.00)]//Edge Case for Park Date

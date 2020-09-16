@@ -20,9 +20,9 @@ namespace ParkingManagement.Tests
         [TestCase("09/15/2020 16:50:00", "09/15/2020 19:16:00", 0)]
         [TestCase("09/15/2020 16:50:00", "09/16/2020 19:16:00", 0)]
         [TestCase("09/15/2020 16:50:00", "09/17/2020 19:16:00", 1)]
-        public void GetChrgeableMidDaysTest(DateTime entryDate, DateTime exitDate, int expected)
+        public void GetChargeableMidDaysTest(DateTime entryDate, DateTime exitDate, int expected)
         {
-            int res = _sut.GetChrgeableMiddleDays(entryDate, exitDate);
+            int res = _sut.GetChargeableMiddleDays(entryDate, exitDate);
             Assert.AreEqual(expected, res);
         }
     }

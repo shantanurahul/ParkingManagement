@@ -15,7 +15,7 @@ namespace ParkingManagement
                 return decimal.Round(totalCharge, 2);
             }
 
-            throw new ArgumentException("Entry Date cannot be greate than Exit date");
+            throw new ArgumentException("Entry Date cannot be greater than Exit date");
         }
 
         private double GetChargeableDays(DateTime entryTime, DateTime exitTime)
@@ -23,7 +23,7 @@ namespace ParkingManagement
             // Car is Parked for over a day
             if (exitTime.Date > entryTime.Date)
             {
-                // Rouding up to whole days adding a day
+                // Rounding up to whole days adding a day
                 return Math.Ceiling((exitTime - entryTime).TotalDays + 1d);
             }
             else
