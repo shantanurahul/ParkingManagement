@@ -67,7 +67,7 @@ namespace ParkingManagement
         public int GetChargeableMiddleDays(DateTime from, DateTime end)
         {
             var totalDays = 0;
-            //We need the middle non-weekend Full days between Parked Day and Exit Day
+            //Get Non-weekend days between Parked Day and Exit Day
             for (var date = from.AddDays(1); date < end.AddDays(-1); date = date.AddDays(1))
             {
                 if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
