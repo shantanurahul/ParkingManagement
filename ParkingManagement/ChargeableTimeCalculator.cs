@@ -32,7 +32,7 @@ namespace ParkingManagement
             return totalChargeableMins;
         }
 
-        private double GetChargeableTimeEntryDay(DateTime entryTime)
+        public double GetChargeableTimeEntryDay(DateTime entryTime)
         {
             if (entryTime.IsFreeParkingHoursForParkDate())
             {
@@ -45,7 +45,7 @@ namespace ParkingManagement
             }
         }
 
-        private double GetChargeableTimeExitDay(DateTime exitTime)
+        public double GetChargeableTimeExitDay(DateTime exitTime)
         {
             if (exitTime.IsFreeParkingHoursForLeaveDate())
             {
@@ -58,7 +58,7 @@ namespace ParkingManagement
             }
         }
 
-        private double GetChargeableTimeForFullDays(DateTime entryTime, DateTime exitTime)
+        public double GetChargeableTimeForFullDays(DateTime entryTime, DateTime exitTime)
         {
             int days = GetChrgeableMiddleDays(entryTime, exitTime);
             return days * FullDayParkingInMins;
