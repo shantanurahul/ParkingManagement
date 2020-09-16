@@ -4,7 +4,7 @@ namespace ParkingManagement
 {
     public class ShortStayCalculator
     {
-        private const decimal PerMinCharge = (decimal) (1.10 / 60);
+        private const decimal PerMinCharge = (decimal)(1.10 / 60);
 
         //todo DI this
         private readonly ChargeableTimeCalculator _chargeableTimeCalculator = new ChargeableTimeCalculator();
