@@ -14,17 +14,7 @@ namespace ParkingManagement.Tests
             _sut = new ShortStayCalculator();
         }
 
-        [TestCase("09/07/2017 16:50:00", "09/09/2017 19:15:00", 1)]
-        [TestCase("09/07/2017 16:50:00", "09/09/2017 19:15:00", 1)]
-        [TestCase("09/15/2020 16:50:00", "09/20/2020 19:15:00", 3)]
-        [TestCase("09/15/2020 16:50:00", "09/15/2020 19:16:00", 0)]
-        [TestCase("09/15/2020 16:50:00", "09/16/2020 19:16:00", 0)]
-        [TestCase("09/15/2020 16:50:00", "09/17/2020 19:16:00", 1)]
-        public void GetChrgeableMidDaysTest(DateTime entryDate, DateTime exitDate, int expected)
-        {
-            int res = _sut.GetChrgeableMiddleDays(entryDate, exitDate);
-            Assert.AreEqual(expected, res);
-        }
+
 
         [TestCase("09/07/2017 16:50:00", "09/09/2017 19:15:00", 12.28)] //Orignal Test Case
         [TestCase("09/15/2020 05:00:00", "09/21/2020 17:58:00", 54.96)]//Parking over weekend
@@ -38,7 +28,7 @@ namespace ParkingManagement.Tests
         [TestCase("09/26/2020 18:00:00", "09/28/2020 08:00:00", 0.00)]//Edge Case weekend Parking and Park Date
         [TestCase("09/26/2020 18:00:00", "09/28/2020 18:00:00", 11)]//Edge Case weekend Parking and Exit Date
         [TestCase("09/26/2020 18:00:00", "09/28/2020 08:01:00", 0.02)]//Weekend Parking with paid Park Date
-        public void ParkingChargeTest(DateTime entryDate, DateTime exitDate, decimal expected)
+        public void ParkingChargeForShortStay(DateTime entryDate, DateTime exitDate, decimal expected)
         {
             decimal res = _sut.ParkingCharge(entryDate, exitDate);
             Assert.AreEqual(expected, res);
