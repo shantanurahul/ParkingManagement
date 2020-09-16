@@ -30,7 +30,6 @@ namespace ParkingManagement
             {
                 return 1d;
             }
-                
         }
     }
 }

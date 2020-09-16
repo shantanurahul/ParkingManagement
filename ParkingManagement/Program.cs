@@ -2,9 +2,9 @@
 
 namespace ParkingManagement
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             new ShortStayCalculator().ParkingCharge(new DateTime(), new DateTime());
             Console.WriteLine("Hello World!");
