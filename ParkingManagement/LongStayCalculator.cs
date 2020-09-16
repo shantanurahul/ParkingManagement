@@ -6,11 +6,11 @@ namespace ParkingManagement
     {
         private const decimal PerDayParkingFee = 7.50m;
 
-        public decimal ParkingCharge(DateTime entryTime, DateTime exitTime)
+        public decimal ParkingCharge(DateTime parkingDateTime, DateTime exitDateTime)
         {
-            if (!(entryTime > exitTime))
+            if (!(parkingDateTime > exitDateTime))
             {
-                var chargeableDays = GetChargeableDays(entryTime, exitTime);
+                var chargeableDays = GetChargeableDays(parkingDateTime, exitDateTime);
                 var totalCharge = Convert.ToDecimal(chargeableDays) * PerDayParkingFee;
                 return decimal.Round(totalCharge, 2);
             }
@@ -18,13 +18,13 @@ namespace ParkingManagement
             throw new ArgumentException("Entry Date cannot be greater than Exit date");
         }
 
-        private double GetChargeableDays(DateTime entryTime, DateTime exitTime)
+        private double GetChargeableDays(DateTime parkingDateTime, DateTime exitDateTime)
         {
             // Car is Parked for over a day
-            if (exitTime.Date > entryTime.Date)
+            if (exitDateTime.Date > parkingDateTime.Date)
             {
                 // Rounding up to whole days adding a day
-                return Math.Ceiling((exitTime - entryTime).TotalDays + 1d);
+                return Math.Ceiling((exitDateTime - parkingDateTime).TotalDays + 1d);
             }
             else
             {
