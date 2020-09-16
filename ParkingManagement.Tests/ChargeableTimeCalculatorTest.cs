@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
+using NUnit.Framework;
 
 namespace ParkingManagement.Tests
 {
@@ -22,7 +22,7 @@ namespace ParkingManagement.Tests
         [TestCase("09/15/2020 16:50:00", "09/17/2020 19:16:00", 1)]
         public void GetChargeableMidDaysTest(DateTime entryDate, DateTime exitDate, int expected)
         {
-            int res = _sut.GetChargeableMiddleDays(entryDate, exitDate);
+            var res = _sut.GetChargeableMiddleDays(entryDate, exitDate);
             Assert.AreEqual(expected, res);
         }
     }

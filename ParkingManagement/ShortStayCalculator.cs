@@ -4,7 +4,7 @@ namespace ParkingManagement
 {
     public class ShortStayCalculator
     {
-        private const decimal PerMinCharge = (decimal)(1.10 / 60);
+        private const decimal PerMinCharge = (decimal) (1.10 / 60);
 
         //todo DI this
         private readonly ChargeableTimeCalculator _chargeableTimeCalculator = new ChargeableTimeCalculator();
@@ -13,8 +13,8 @@ namespace ParkingManagement
         {
             if (!(parkingDateTime > exitDateTime))
             {
-                double chargeableMinutes = _chargeableTimeCalculator.GetChargeableMinutes(parkingDateTime, exitDateTime);
-                decimal totalCharge = Convert.ToDecimal(chargeableMinutes) * PerMinCharge;
+                var chargeableMinutes = _chargeableTimeCalculator.GetChargeableMinutes(parkingDateTime, exitDateTime);
+                var totalCharge = Convert.ToDecimal(chargeableMinutes) * PerMinCharge;
                 return decimal.Round(totalCharge, 2);
             }
 

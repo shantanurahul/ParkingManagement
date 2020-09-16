@@ -10,8 +10,8 @@ namespace ParkingManagement
         {
             if (!(entryTime > exitTime))
             {
-                double chargeableDays = GetChargeableDays(entryTime, exitTime);
-                decimal totalCharge = Convert.ToDecimal(chargeableDays) * PerDayParkingFee;
+                var chargeableDays = GetChargeableDays(entryTime, exitTime);
+                var totalCharge = Convert.ToDecimal(chargeableDays) * PerDayParkingFee;
                 return decimal.Round(totalCharge, 2);
             }
 

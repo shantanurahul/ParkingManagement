@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using System;
+using NUnit.Framework;
 
 namespace ParkingManagement.Tests
 {
@@ -28,7 +28,7 @@ namespace ParkingManagement.Tests
         [TestCase("09/26/2020 18:00:00", "09/28/2020 08:01:00", 0.02)]//Weekend Parking with paid Park Date
         public void ParkingChargeForShortStay(DateTime entryDate, DateTime exitDate, decimal expected)
         {
-            decimal res = _sut.ParkingCharge(entryDate, exitDate);
+            var res = _sut.ParkingCharge(entryDate, exitDate);
             Assert.AreEqual(expected, res);
         }
     }

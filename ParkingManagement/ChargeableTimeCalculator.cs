@@ -16,16 +16,16 @@ namespace ParkingManagement
             // Car is Parked for over a day
             if (exitTime.Date > entryTime.Date)
             {
-                double chargeableTimeEntryDay = GetChargeableTimeEntryDay(entryTime);
-                double chargeableTimeForEntireDays = GetChargeableTimeForFullDays(entryTime, exitTime);
-                double chargeableTimeExitDay = GetChargeableTimeExitDay(exitTime);
+                var chargeableTimeEntryDay = GetChargeableTimeEntryDay(entryTime);
+                var chargeableTimeForEntireDays = GetChargeableTimeForFullDays(entryTime, exitTime);
+                var chargeableTimeExitDay = GetChargeableTimeExitDay(exitTime);
 
                 totalChargeableMinutes = chargeableTimeEntryDay + chargeableTimeForEntireDays + chargeableTimeExitDay;
             }
             else
             {
-                TimeSpan currentEntryTime = entryTime.TimeOfDay < StartClock ? StartClock : entryTime.TimeOfDay;
-                TimeSpan currentExitTime = exitTime.TimeOfDay > EndClock ? EndClock : exitTime.TimeOfDay;
+                var currentEntryTime = entryTime.TimeOfDay < StartClock ? StartClock : entryTime.TimeOfDay;
+                var currentExitTime = exitTime.TimeOfDay > EndClock ? EndClock : exitTime.TimeOfDay;
                 totalChargeableMinutes = currentExitTime < currentEntryTime ? 0d : (currentExitTime - currentEntryTime).TotalMinutes;
             }
 
@@ -60,13 +60,13 @@ namespace ParkingManagement
 
         public double GetChargeableTimeForFullDays(DateTime entryTime, DateTime exitTime)
         {
-            int days = GetChargeableMiddleDays(entryTime, exitTime);
+            var days = GetChargeableMiddleDays(entryTime, exitTime);
             return days * FullDayParkingInMinutes;
         }
 
         public int GetChargeableMiddleDays(DateTime from, DateTime end)
         {
-            int totalDays = 0;
+            var totalDays = 0;
             //We need the middle non-weekend Full days between Parked Day and Exit Day
             for (var date = from.AddDays(1); date < end.AddDays(-1); date = date.AddDays(1))
             {
