@@ -5,3 +5,7 @@
 /.vs/ParkingManagement/DesignTimeBuild
 /.vs/ParkingManagement/v16/TestStore/0
 /.vs/ParkingManagement/v16
+/ParkingManagement.Tests/bin/*
+/ParkingManagement.Tests/obj/*
+/ParkingManagement/bin/*
+/ParkingManagement/obj/*
